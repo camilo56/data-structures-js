@@ -1,0 +1,19 @@
+{
+  "name": "data-structures-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/camilo56/data-structures-js.git"
+  },
+  "author": "camilo colorado (camiloHimura)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/camilo56/data-structures-js/issues"
+  },
+  "homepage": "https://github.com/camilo56/data-structures-js#readme"
+}
