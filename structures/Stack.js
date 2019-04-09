@@ -1,23 +1,32 @@
 
-function stack(){
+function Stack(){
+    //private properties
+    let length = 0;
+    let storage = {};
+
     return  Object.create({
-                index: 0,
-                storage: {},
-                push: function(data) {
-                    if(!data){return}
+                push(value) {
+                    if(!value){return}
 
-                    this.storage[this.index] = data;
-                    this.index++;
+                    storage[length] = value;
+                    length++;
                 },
-                pop: function(){
-                    if(!this.storage[this.index - 1]){return}
+                pop(){
+                    if(!storage[length - 1]){return}
 
-                    delete this.storage[this.index - 1];
-                    this.index--;
+                    let value = storage[length - 1]; 
+                    delete storage[length - 1];
+                    length--;
+                    return value;
                 },
-                show: function(){console.log(this.storage)},
+                peek(){
+                    if(storage[length - 1]){
+                        return storage[length - 1];
+                    }
+                },
+                get length(){ return length},
+                show(){console.log(storage)},
             })
-
 }
 
-module.exports = stack;
+module.exports = Stack;

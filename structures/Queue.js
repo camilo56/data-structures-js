@@ -1,24 +1,34 @@
 
-function queue(){
+function Queue(){
+    //private properties
+    let storage =  {};
+    let indexTail = 0;
+    let indexHead = 0;
+
     return  Object.create({
-                tail: 1,
-                head: 1,
-                storage: {},
-                enqueue: function(data = false) {
-                    if(data == false){return}
+                enqueue(value = false) {
+                    if(value == false){return}
 
-                    this.storage[this.tail] = data;
-                    this.tail++;
+                    storage[indexTail] = value;
+                    indexTail++;
                 },
-                dequeue: function(){
-                    if(!this.storage[this.head]){return}
+                dequeue(){
+                    if(!storage[indexHead]){return}
 
-                    delete this.storage[this.head];
-                    this.head++;
+                    let lastValue = storage[indexHead];
+                    delete storage[indexHead];
+                    indexHead++;
+                    return lastValue;
                 },
-                show: function(){console.log(this.storage)},
+                peek(){
+                    return storage[indexTail - 1];
+                },
+                get length(){ 
+                    return indexTail - indexHead 
+                },
+                show(){console.log(storage)},
             })
 
 }
 
-module.exports = queue;
+module.exports = Queue;
