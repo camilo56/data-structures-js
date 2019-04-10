@@ -1,32 +1,32 @@
 
 function Queue(){
     //private properties
-    let storage =  {};
-    let indexTail = 0;
-    let indexHead = 0;
+    let _storage =  {};
+    let _indexTail = 0;
+    let _indexHead = 0;
 
     return  Object.create({
                 enqueue(value = false) {
                     if(value == false){return}
 
-                    storage[indexTail] = value;
-                    indexTail++;
+                    _storage[_indexTail] = value;
+                    _indexTail++;
                 },
                 dequeue(){
-                    if(!storage[indexHead]){return}
+                    if(!_storage[_indexHead]){return}
 
-                    let lastValue = storage[indexHead];
-                    delete storage[indexHead];
-                    indexHead++;
+                    let lastValue = _storage[_indexHead];
+                    delete _storage[_indexHead];
+                    _indexHead++;
                     return lastValue;
                 },
                 peek(){
-                    return storage[indexTail - 1];
+                    return _storage[_indexTail - 1];
                 },
                 get length(){ 
-                    return indexTail - indexHead 
+                    return _indexTail - _indexHead 
                 },
-                show(){console.log(storage)},
+                show(){console.log(_storage)},
             })
 
 }

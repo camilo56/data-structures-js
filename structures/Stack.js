@@ -1,31 +1,37 @@
 
 function Stack(){
     //private properties
-    let length = 0;
-    let storage = {};
+    let _length = 0;
+    let _storage = {};
 
     return  Object.create({
                 push(value) {
                     if(!value){return}
 
-                    storage[length] = value;
-                    length++;
+                    _storage[_length] = value;
+                    _length++;
+                    return value;
                 },
                 pop(){
-                    if(!storage[length - 1]){return}
+                    if(!_storage[_length - 1]){return}
 
-                    let value = storage[length - 1]; 
-                    delete storage[length - 1];
-                    length--;
+                    let value = _storage[_length - 1]; 
+                    delete _storage[_length - 1];
+                    _length--;
                     return value;
                 },
                 peek(){
-                    if(storage[length - 1]){
-                        return storage[length - 1];
+                    if(_storage[_length - 1]){
+                        return _storage[_length - 1];
                     }
                 },
-                get length(){ return length},
-                show(){console.log(storage)},
+                clean(){
+                    _length = 0;
+                    _storage = {};
+                    return _storage;
+                },
+                get length(){ return _length},
+                show(){return _storage},
             })
 }
 

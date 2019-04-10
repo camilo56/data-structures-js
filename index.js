@@ -1,6 +1,7 @@
 const Queue = require("./structures/Queue");
 const Stack = require("./structures/Stack");
 const LinkedList = require("./structures/LinkedList");
+const HasTable = require("./structures/HasTable");
 
 const firstStack = Stack();
 console.log("------ Stack ------")
@@ -9,13 +10,14 @@ firstStack.push("camilo2");
 console.log(firstStack.peek())
 firstStack.pop();
 firstStack.pop();
-firstStack.show();
+console.log(firstStack.show());
 firstStack.push("camilo5");
 console.log(firstStack.peek())
-firstStack.show();
+console.log(firstStack.show());
 firstStack.push("camilo6");
+console.log(firstStack.length = 10)
 console.log(firstStack.length)
-
+/* 
 const firstQueue = Queue();
 console.log("------ Queue ------");
 firstQueue.enqueue("camilo1")
@@ -47,3 +49,16 @@ fLinkedList.show();
 console.log(fLinkedList.length)
 fLinkedList.remove("camilo1");
 fLinkedList.show();
+
+console.log("------ HasTable ------");
+let fHasTable = HasTable(20);
+
+fHasTable.insert("one", "Camilo1")
+fHasTable.insert("two", "Camilo2")
+fHasTable.insert("three", "Camilo3")
+fHasTable.insert("two", "change Camilo2")
+console.log(fHasTable.retrive("two"))
+fHasTable.show()
+console.log(fHasTable.retrive("two"))
+console.log(fHasTable.retrive("three"))
+console.log(fHasTable.retrive("one")) */
