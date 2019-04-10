@@ -11,6 +11,7 @@ function Queue(){
 
                     _storage[_indexTail] = value;
                     _indexTail++;
+                    return value;
                 },
                 dequeue(){
                     if(!_storage[_indexHead]){return}
@@ -26,7 +27,12 @@ function Queue(){
                 get length(){ 
                     return _indexTail - _indexHead 
                 },
-                show(){console.log(_storage)},
+                clean(){
+                    _storage =  {};
+                    _indexTail = 0;
+                    _indexHead = 0;
+                },
+                show(){return _storage},
             })
 
 }

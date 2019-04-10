@@ -11,6 +11,10 @@ test("add a item", () => {
     expect(nStack.push("one")).toEqual("one");
 })
 
+test("add a empty item", () => {
+    expect(nStack.push()).toBeUndefined();
+})
+
 test("get the length after adding", () => {
     nStack.push("one");
     nStack.push("two");

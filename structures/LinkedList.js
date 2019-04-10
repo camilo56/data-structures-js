@@ -1,7 +1,7 @@
 
-function LinkedList(value){
+function LinkedList(initValue){
     const newNode = (value, next = null) => ({value, next})
-    const firstNode = newNode(value)
+    const firstNode = newNode(initValue)
     //private properties
     let _tail = _head = firstNode;
     let _length = 1;
@@ -20,6 +20,7 @@ function LinkedList(value){
                     const node = newNode(value, _head);
                     _head = node;
                     _length++;
+                    return _head;
                 },
                 removeHead(){
                     if(!_head){return }
@@ -50,7 +51,9 @@ function LinkedList(value){
                     while(current.next !== _tail){ current = current.next };
 
                     current.next = null;
-                    _tail = current;;
+                    let oldTail = _tail;
+                    _tail = current;
+                    return oldTail;
                 },
                 contain(value){
                     let current = _head;
@@ -64,7 +67,11 @@ function LinkedList(value){
                 get length(){
                     return _length;
                 },
-                show(){console.log(JSON.stringify(_head, null, 1))},
+                clean(){
+                    _tail = _head = firstNode;
+                    _length = 1;
+                },
+                show(){return JSON.stringify(_head)},
             })
 
 }
