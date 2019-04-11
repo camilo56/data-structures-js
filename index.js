@@ -34,7 +34,7 @@ console.log(firstQueue.peek());
 console.log(firstQueue.length) */
 
 
-console.log("------ LinkedList ------");
+/* console.log("------ LinkedList ------");
 let fLinkedList = LinkedList("camilo1");
 fLinkedList.insert("camilo2")
 fLinkedList.insert("camilo3")
@@ -49,17 +49,19 @@ console.log(fLinkedList.contain("camilo4"))
 console.log(fLinkedList.show());
 console.log(fLinkedList.length)
 fLinkedList.remove("camilo1");
-console.log(fLinkedList.show());
+console.log(fLinkedList.show()); */
 
-/* console.log("------ HasTable ------");
+console.log("------ HasTable ------");
 let fHasTable = HasTable(20);
 
-fHasTable.insert("one", "Camilo1")
-fHasTable.insert("two", "Camilo2")
-fHasTable.insert("three", "Camilo3")
-fHasTable.insert("two", "change Camilo2")
-console.log(fHasTable.retrive("two"))
-fHasTable.show()
-console.log(fHasTable.retrive("two"))
-console.log(fHasTable.retrive("three"))
-console.log(fHasTable.retrive("one")) */
+console.log(fHasTable.insert("asd", "Camilo1"));
+console.log(fHasTable.insert("ads", "Camilo2"));
+/* console.log(fHasTable.insert("three", "Camilo3"));
+console.log(fHasTable.insert("two", "change Camilo2"));
+console.log(fHasTable.retrive("two"));
+*/
+console.log(fHasTable.retrive("two"));
+fHasTable.show();
+/* console.log(fHasTable.retrive("two"));
+console.log(fHasTable.retrive("three"));
+console.log(fHasTable.retrive("one")); */
