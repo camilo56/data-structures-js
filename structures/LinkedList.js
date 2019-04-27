@@ -71,6 +71,9 @@ function LinkedList(initValue){
                     _tail = _head = firstNode;
                     _length = 1;
                 },
+                get head(){
+                    return _head;
+                },
                 show(){return JSON.stringify(_head)},
             })
 

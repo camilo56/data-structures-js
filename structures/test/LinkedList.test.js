@@ -61,3 +61,7 @@ test("test show", () => {
     expect(nLinkedList.show()).toEqual(JSON.stringify({value: "one", next: null}));
 })
 
+test("get the head", () => {
+    expect(nLinkedList.head.value).toBe("one");
+})
+
