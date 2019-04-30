@@ -51,6 +51,7 @@ class LinkedList{
 
         if(current.next.value === value){
             current.next = current.next.next;
+            this.length--;
         }
 
         this.head = dummies.next;
@@ -84,11 +85,6 @@ class LinkedList{
                 !node.hasOwnProperty("value") || !node.hasOwnProperty("next") 
     }
 
-    clean(){
-        this.tail = this.head;
-        this.length = 1;
-    }
-
     show(){return JSON.stringify(this.head)}
 
     get value(){
@@ -101,12 +97,6 @@ class LinkedList{
         if(!this.head){return null}
 
         return this.head.next
-    }
-    
-    get getNode(){
-        if(!this.head){return this}
-
-        return this.head
     }
 }
 

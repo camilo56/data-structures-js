@@ -60,14 +60,23 @@ test("remove last one", () => {
     expect(nLinkedList.removeTail()).toEqual({value: "four", next: null});
 })
 
+test("remove an element", () => {
+    nLinkedList.insert("one");
+    nLinkedList.insert("two");
+    nLinkedList.insert("three");
+    
+    nLinkedList.remove("two");
+
+    expect(nLinkedList.contain("two")).toBeFalsy();
+})
+
 test("get the length after removig", () => {
     nLinkedList.insert("two");
     nLinkedList.insert("three");
     
-    nLinkedList.removeTail();
-    nLinkedList.removeTail();
+    nLinkedList.remove("two");
 
-    expect(nLinkedList.length).toEqual(1);
+    expect(nLinkedList.length).toEqual(2);
 })
 
 test("test show", () => {
