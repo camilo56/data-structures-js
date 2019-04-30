@@ -1,19 +1,34 @@
-const LinkedList = require("../LinkedList");
-const Node = require("../../utils/Node");
-var nLinkedList = LinkedList();
+const LinkedList = require("./LinkedList.class");
+const Node = require("../utils/Node");
+var nLinkedList;
 
 beforeEach(() => {
-    nLinkedList = LinkedList(Node("one"));
+    nLinkedList = new LinkedList("initial");
 });
 
 test("get instance", () => {
-    let iLinkedList = LinkedList();
-    expect(iLinkedList.show()).toEqual(JSON.stringify({value:"", next: null}));
+    expect(nLinkedList).not.toBeUndefined();
 })
 
 test("add a item", () => {
-    let iLinkedList = LinkedList(Node("one"));
-    expect(iLinkedList.insert("two")).toEqual({ value: 'two', next: null });
+    expect(nLinkedList.insert("two")).toEqual({ value: 'two', next: null });
+})
+
+test("add node", () => {
+    let newNode = Node("camilo");
+    expect(nLinkedList.insertNode(newNode)).toEqual(nLinkedList.tail);
+})
+
+test("add bad node without value", () => {
+    let newNode = {next: null};
+
+    expect(nLinkedList.insertNode(newNode)).toBeNull();
+})
+
+test("add bad node without next", () => {
+    let newNode = {value: "milo"};
+
+    expect(nLinkedList.insertNode(newNode)).toBeNull();
 })
 
 test("add a empty item", () => {
@@ -21,7 +36,7 @@ test("add a empty item", () => {
 })
 
 test("inset head", () => {
-    expect(nLinkedList.insertHead("two")).toEqual({ value: 'two', next: { value: 'one', next: null } });
+    expect(nLinkedList.insertHead("two")).toEqual({ value: 'two', next: { value: 'initial', next: null } });
 })
 
 test("get the length after adding", () => {
@@ -55,22 +70,15 @@ test("get the length after removig", () => {
     expect(nLinkedList.length).toEqual(1);
 })
 
-test("change the length", () => {
-    nLinkedList.length = 10;
-    expect(nLinkedList.length).toEqual(1);
-})
-
 test("test show", () => {
-    expect(nLinkedList.show()).toEqual(JSON.stringify({value: "one", next: null}));
+    expect(nLinkedList.show()).toEqual(JSON.stringify({value: "initial", next: null}));
 })
 
 test("get the head", () => {
-    expect(nLinkedList.head.value).toBe("one");
+    expect(nLinkedList.head.value).toBe("initial");
 })
-
 
 test("different instance", () => {
     let iLinkedList = Node("one");
     expect(nLinkedList).not.toBe(iLinkedList);
 })
-

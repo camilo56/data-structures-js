@@ -1,19 +1,31 @@
 var Node = require("../utils/Node");
 
-function LinkedList(firstNode = Node()){
+function LinkedList(_head = Node(),  _tail, _length = 1){
     //private properties
-    let _tail = _head = firstNode;
-    let _length = 1;
+    _tail = _head;
+
+    isNotNode = node => {
+        return node == false || typeof node !== "object" ||
+                !node.hasOwnProperty("value") || !node.hasOwnProperty("next") 
+    }
 
     let methods = Object.create({
         insert(value = false) {
             if(value == false){return}
-
+            
             const node = Node(value);
             _tail.next = node;
             _tail = node;
             _length++;
-            return node;
+            return _tail;
+        },
+        insertNode(node = false){
+            if(isNotNode(node)){return null}
+
+            _tail.next = node;
+            _tail = node;
+            _length++;
+            return _tail;
         },
         insertHead(value){
             const node = Node(value, _head);
@@ -22,10 +34,11 @@ function LinkedList(firstNode = Node()){
             return _head;
         },
         removeHead(){
-            if(!_head){return }
+            if(!_head){return null}
 
             _length--;
-            _head = _head.next;
+
+            return _head = _head.next;
         },
         remove(value){
             let dummies = Node("", _head);
@@ -67,16 +80,40 @@ function LinkedList(firstNode = Node()){
             return _length;
         },
         clean(){
-            _tail = _head = firstNode;
+            _tail = _head;
             _length = 1;
         },
         get head(){
             return _head;
         },
+        get tail(){
+            return _tail;
+        },
         show(){return JSON.stringify(_head)},
     })
 
-    return  Object.assign(methods, firstNode);
+    let newNode = Object.assign(methods, _head);
+
+    Object.defineProperty(newNode, 'next', {
+        get: () => {
+          return _tail;
+        },
+        set: function(node) {
+            return this.insertNode(node)
+        }
+    });
+    
+    Object.defineProperty(newNode, 'value', {
+        get: () => {
+          return _head.value;
+        },
+        set: function(value) {
+            _head.value = value;
+        }
+    });
+
+
+    return newNode;
 
 }
 

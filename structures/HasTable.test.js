@@ -1,4 +1,4 @@
-const HasTable = require("../HasTable");
+const HasTable = require("./HasTable");
 const fHasTable = HasTable(20);
 
 beforeEach(() => fHasTable.clean());
