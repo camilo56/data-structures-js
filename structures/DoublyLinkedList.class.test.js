@@ -83,6 +83,7 @@ fdescribe("Singly Liked List", () => {
   test("get invalid index", () => {
     fillList(doublyLinkedList, ["camilo", "colorado", "colmenares", "cristian"]);
     expect(doublyLinkedList.get(-1)).toBe(null);
+    expect(doublyLinkedList.get(4)).toBe(null);
     expect(doublyLinkedList.get(10)).toBe(null);
   })
   
@@ -175,12 +176,13 @@ fdescribe("Singly Liked List", () => {
     expect(doublyLinkedList.get(2).prev.val).toBe("colorado");
   })
 
-/*   test("reverse list tails is head and viceversa", () => {
-    fillList(doublyLinkedList, ["camilo", "colorado", "colmenares", "cristian"]);
+  test("reverse list tails is head and viceversa", () => {
+    fillList(doublyLinkedList, ["colorado", "colmenares", "cristian", "camilo"]);
     doublyLinkedList.reverse();
 
-    expect(doublyLinkedList.head.val).toBe("cristian");
-    expect(doublyLinkedList.tail.val).toBe("camilo");
+    expect(doublyLinkedList.head.val).toBe("camilo");
+    expect(doublyLinkedList.head.prev.val).toBe("cristian");
+    expect(doublyLinkedList.tail.val).toBe("colorado");
   })
 
   test("reverse list get index", () => {
@@ -188,7 +190,7 @@ fdescribe("Singly Liked List", () => {
     doublyLinkedList.reverse();
 
     expect(doublyLinkedList.get(1).val).toBe("cristian");
-  }) */
+  })
 
 })
 

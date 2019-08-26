@@ -76,7 +76,7 @@ class DoublyLinkedList{
   }
 
   get(index){
-    if(index < 0 || index > this.length){ return null}
+    if(index < 0 || index > this.length - 1){ return null}
     let current;
     let auxIndex;
     
