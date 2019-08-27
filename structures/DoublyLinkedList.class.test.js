@@ -5,7 +5,7 @@ beforeEach(() => {
     doublyLinkedList = new DoublyLinkedList();
 })
 
-fdescribe("Singly Liked List", () => {
+describe("Singly Liked List", () => {
 
   test("get instance", () => {
     expect(doublyLinkedList).toBeTruthy();
